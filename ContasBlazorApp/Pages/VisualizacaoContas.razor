@@ -1,0 +1,67 @@
+﻿@page "/Contas-vencimento"
+
+@using ContasBlazorApp.ViewModels
+@inject ContasBlazorApp.Services.ContaService ContaService
+@inject IJSRuntime JS  // Injeção de IJSRuntime
+
+<h3 style="color: green; border: 2px solid green; padding: 10px;">SELECIONE O PERIODO DE VENCIMENTO DA CONTA:</h3>
+
+<p style="margin-bottom: 20px;">Copie o "id" da conta para fazer o pagamento da mesma</p>
+
+<div>
+    <label for="dataInicio">Data Início:</label>
+    <input type="date" id="dataInicio" @bind="dataInicio" />
+
+    <label for="dataFim">Data Fim:</label>
+    <input type="date" id="dataFim" @bind="dataFim" />
+
+    <button @onclick="BuscarContas">Buscar</button>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Descrição</th>
+            <th>Valor</th>
+            <th>Data de Vencimento</th>
+            <th>ID</th> <!-- Adicionando coluna para exibir o ID -->
+        </tr>
+    </thead>
+    <tbody>
+        @if (viewModel.Contas != null && viewModel.Contas.Any())
+        {
+            @foreach (var conta in viewModel.Contas)
+            {
+                <tr>
+                    <td>@conta.Descricao</td>
+                    <td>@conta.Valor</td>
+                    <td>@conta.DataVencimento.ToShortDateString()</td>
+                    <td>@conta.Id</td> <!-- Exibindo o ID da conta -->
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5">Nenhuma conta encontrada para o período selecionado.</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    private VisualizacaoContasViewModel viewModel;
+    private DateTime dataInicio;
+    private DateTime dataFim;
+
+    protected override void OnInitialized()
+    {
+        viewModel = new VisualizacaoContasViewModel(ContaService);
+    }
+
+    private async Task BuscarContas()
+    {
+        await viewModel.LoadContasPorPeriodoAsync(dataInicio, dataFim);
+    }
+
+}

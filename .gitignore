@@ -1,0 +1,35 @@
+# Ignore arquivos temporários do Visual Studio
+.vs/
+
+# Ignore arquivos de build do Visual Studio
+/bin/
+/obj/
+
+# Ignore arquivos de configuração do Visual Studio
+*.user
+*.suo
+*.cache
+
+# Ignore arquivos de dependências do NuGet
+**/packages/
+
+# Ignore arquivos de build do .NET
+*.dll
+*.pdb
+*.exe
+
+# Ignore arquivos gerados automaticamente
+*.log
+*.vscode/
+
+# Ignore arquivos de publicação
+*.publishsettings
+*.pubxml
+
+# Ignore arquivos de configuração do Windows
+Thumbs.db
+Desktop.ini
+
+# Ignore arquivos de backup
+*~
+*.bak

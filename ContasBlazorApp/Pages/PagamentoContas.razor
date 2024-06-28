@@ -1,0 +1,89 @@
+﻿@page "/Contas-pagar"
+
+@using ContasBlazorApp.ViewModels
+@inject ContasBlazorApp.Services.ContaService ContaService
+
+<div class="titulo-caixa">
+    <h3>Pagamentos de contas</h3>
+</div>
+
+<div>
+    <label for="contaId">ID da Conta:</label>
+    <input type="text" id="contaId" @bind="contaId" />
+    <button @onclick="BuscarContas">Buscar</button>
+</div>
+
+@if (!string.IsNullOrEmpty(viewModel.MensagemSucesso))
+{
+    <div class="alert alert-success">@viewModel.MensagemSucesso</div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Descrição</th>
+            <th>Valor</th>
+            <th>Data de Vencimento</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (viewModel.Contas != null && viewModel.Contas.Count > 0)
+        {
+            @foreach (var conta in viewModel.Contas)
+            {
+                <tr>
+                    <td>@conta.Descricao</td>
+                    <td>@conta.Valor</td>
+                    <td>@conta.DataVencimento.ToShortDateString()</td>
+                    <td>
+                        <button @onclick="() => PagarConta(conta.Id)" style="color: white; background-color: red;">Pagar</button>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+@code {
+    private PagarContasViewModel viewModel;
+    private string contaId;
+
+    protected override void OnInitialized()
+    {
+        viewModel = new PagarContasViewModel(ContaService);
+    }
+
+    private async Task BuscarContas()
+    {
+        try
+        {
+            if (Guid.TryParse(contaId, out Guid parsedId))
+            {
+                await viewModel.LoadContasByIdAsync(parsedId);
+            }
+            else
+            {
+                Console.WriteLine("ID da conta inválido.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao buscar contas: {ex.Message}");
+            throw;
+        }
+    }
+
+    private async Task PagarConta(Guid id)
+    {
+        try
+        {
+            await viewModel.PagarContaAsync(id);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao pagar conta: {ex.Message}");
+            throw;
+        }
+    }
+}

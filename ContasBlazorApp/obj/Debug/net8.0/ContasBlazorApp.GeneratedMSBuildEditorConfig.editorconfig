@@ -1,0 +1,47 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = ContasBlazorApp
+build_property.RootNamespace = ContasBlazorApp
+build_property.ProjectDir = C:\aulascsharp\ContasBlazorApp\ContasBlazorApp\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = false
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\aulascsharp\ContasBlazorApp\ContasBlazorApp
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/aulascsharp/ContasBlazorApp/ContasBlazorApp/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/aulascsharp/ContasBlazorApp/ContasBlazorApp/Pages/PagamentoContas.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnYW1lbnRvQ29udGFzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/aulascsharp/ContasBlazorApp/ContasBlazorApp/Pages/VisualizacaoContas.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmlzdWFsaXphY2FvQ29udGFzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/aulascsharp/ContasBlazorApp/ContasBlazorApp/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/aulascsharp/ContasBlazorApp/ContasBlazorApp/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-xdkeh3e3xf
+
+[C:/aulascsharp/ContasBlazorApp/ContasBlazorApp/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-u5642gl56h
